@@ -82,10 +82,57 @@
   }
 
   window.addEventListener('pointermove', e => onMove(e.clientX, e.clientY), { passive:true });
-  window.addEventListener('pointerdown', e => {
-    if(e.target.closest('a, button, input, textarea, label, .no-ripple')) return;
+  // window.addEventListener('pointerdown', e => {
+  //   if(e.target.closest('a, button, input, textarea, label, .no-ripple')) return;
+  //   onDown(e.clientX, e.clientY);
+  // }, { passive:true });
+// ---- Мобильный импульс: двойной тап ----
+let lastTapTime = 0;
+let tapTimeout = null;
+let isMobileDoubleTap = false;
+
+function isMobile() {
+  return window.innerWidth <= 600;
+}
+
+window.addEventListener('pointerdown', e => {
+  if (e.target.closest('a, button, input, textarea, label, .no-ripple')) return;
+  
+  if (isMobile()) {
+    const now = performance.now();
+    const delta = now - lastTapTime;
+    lastTapTime = now;
+    
+    if (delta <= 300 && delta > 0) {
+      // Двойной тап!
+      if (tapTimeout) {
+        clearTimeout(tapTimeout);
+        tapTimeout = null;
+      }
+      onDown(e.clientX, e.clientY);
+      isMobileDoubleTap = true;
+    } else {
+      // Первый тап — ждём второй
+      isMobileDoubleTap = false;
+      if (tapTimeout) {
+        clearTimeout(tapTimeout);
+        tapTimeout = null;
+      }
+      tapTimeout = setTimeout(() => {
+        // Второго тапа не было — ничего не делаем
+        tapTimeout = null;
+      }, 300);
+    }
+  } else {
+    // Десктоп: сразу
     onDown(e.clientX, e.clientY);
-  }, { passive:true });
+  }
+}, { passive:true });
+
+// Сброс при убирании пальца (на случай, если таймер ещё висит)
+window.addEventListener('pointerup', () => {
+  // Не сбрасываем lastTapTime, чтобы double-tap работал корректно
+}, { passive:true });
 
   function render(){
     resize();

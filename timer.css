@@ -1,6 +1,5 @@
-/* ---- Timer (бомба-таймер) ---- */
 .timer-container {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 6px;
   font-family: var(--mono, "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace);
@@ -49,7 +48,7 @@
   margin: 0 1px;
 }
 
-/* ---- Цвета для разных "настроений" ---- */
+/* ---- Цвета  ---- */
 .timer-years {
   color:  #7bed9f;
   text-shadow: 0 0 8px rgba(255, 138, 30, 0.2);
@@ -97,13 +96,20 @@
 }
 
 /* ---- Адаптив ---- */
-@media (max-width: 560px) {
+@media (max-width: 660px) {
   .timer-container {
-    font-size: 12px;
+    font-size: 1px;
     padding: 3px 8px 3px 6px;
     flex-wrap: wrap;
   }
+  .timer-digits{
+    padding: 2px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(2, 0.5fr);
+    gap: 8px;
+  }
   .timer-unit {
-    font-size: 9px;
+    font-size: 2px;
   }
 }

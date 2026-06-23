@@ -79,15 +79,14 @@ body{
   padding:.06em 0;
 }
 .dur_job{
+  display: inline;
   font-family:var(--mono);
   font-size:12.5px;
   letter-spacing:.04em;
   color:var(--ink);
-  white-space:nowrap;
   padding-top:.4em;
 }
 .role_job{
-  /* margin:14px 0 0; */
   color:var(--ink-2);
   font-size:16px;
   text-align: right;
@@ -148,7 +147,7 @@ ul.duties_job{
 ul.duties_job li{
   position:relative;
   padding-left:20px;
-  color:var(--ink-2);
+  color:var(--ink);
   font-size:15.5px;
 }
 ul.duties_job li::before{
@@ -215,7 +214,9 @@ ul.duties_job li::before{
 .reveal_job{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease;}
 .reveal_job.in_job{opacity:1;transform:none;}
 
-@media (max-width:560px){
+@media (max-width:600px){
   .wrap_job{padding:64px 20px 110px;}
-  .dur_job{padding-top:0;}
+  .dur_job{
+    font-size: 7px;
+  }
 }
