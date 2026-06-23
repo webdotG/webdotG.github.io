@@ -98,7 +98,7 @@
 /* ---- Адаптив ---- */
 @media (max-width: 660px) {
   .timer-container {
-    font-size: 1px;
+    font-size: 7px;
     padding: 3px 8px 3px 6px;
     flex-wrap: wrap;
   }
