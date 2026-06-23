@@ -241,6 +241,6 @@ vec3 scene(vec2 uv, vec2 px){
 `;
 
 window.SHADERS = [
-  { id:'metal',   name:'Liquid Metal', hint:'mercury metaballs', frag: HEADER + METAL   + FOOTER },
-  { id:'plasma',  name:'Plasma Field', hint:'rainbow waves',     frag: HEADER + PLASMA  + FOOTER },
+  { id:'metal',   name:'Live', hint:'mercury metaballs', frag: HEADER + METAL   + FOOTER },
+  { id:'plasma',  name:'Benzin', hint:'rainbow waves',     frag: HEADER + PLASMA  + FOOTER },
 ];

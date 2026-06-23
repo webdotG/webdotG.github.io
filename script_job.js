@@ -2,7 +2,8 @@
   const canvas = document.getElementById('fx');
   const ctx = canvas.getContext('2d');
   let dpr = Math.min(window.devicePixelRatio || 1, 2);
-  const density = 0.6, speed = 0.6;
+  // настройка плотности количества частиц
+  const density = 0.12, speed = 0.35;
 
   function resize(){
     dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -19,7 +20,7 @@
     const x0=r.left, y0=r.top, w=r.width, h=r.height;
     switch(type){
       case 'fire':{
-        const n=Math.max(1,Math.round(w/16*density));
+        const n=Math.max(1,Math.round(w/64*density));
         for(let i=0;i<n;i++){
           if(Math.random()>0.5 && n>1) continue;
           P.push({t:'fire',x:x0+Math.random()*w,y:y0+h*rand(.45,.95),

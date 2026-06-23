@@ -5,20 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ============================ SEO ============================ -->
-<title>Кирилл Грант - Frontend-разработчик · Портфолио и резюме</title>
-<meta name="description" content="Портфолио и резюме Frontend-разработчика. О себе, образование и избранные проекты. Вёрстка, JavaScript, интерактивные интерфейсы.">
-<meta name="keywords" content="портфолио, резюме, frontend, веб-разработчик, javascript, верстка, UI, Кирилл Грант">
+<title>Кирилл Грант — Full-stack-разработчик · Портфолио и резюме</title>
+<meta name="description" content="Портфолио и резюме Front-Back-разработчика. О себе, образование и избранные проекты. Вёрстка, JavaScript, интерактивные интерфейсы.">
+<meta name="keywords" content="портфолио, резюме, frontend, веб-разработчик, javascript, backend, UI, Кирилл Грант">
 <meta name="author" content="Кирилл Грант">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#06070c">
-<link rel="canonical" href="https://username.github.io/">
+<link rel="canonical" href="https://webdotG.github.io/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Кирилл Грант - Портфолио">
-<meta property="og:title" content="Кирилл Грант - Frontend-разработчик">
+<meta property="og:site_name" content="Кирилл Грант — Портфолио">
+<meta property="og:title" content="Кирилл Грант — Front-Back-разработчик">
 <meta property="og:description" content="Портфолио и резюме: о себе, образование и избранные проекты.">
-<meta property="og:url" content="https://username.github.io/">
+<meta property="og:url" content="https://webdotG.github.io/">
 <meta property="og:image" content="og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -26,12 +26,12 @@
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Кирилл Грант - Frontend-разработчик">
+<meta name="twitter:title" content="Кирилл Грант — Front-Back-разработчик">
 <meta name="twitter:description" content="Портфолио и резюме: о себе, образование и избранные проекты.">
 <meta name="twitter:image" content="og-image.png">
 
 <!-- favicon (inline, без отдельного файла) -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0b10'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='700' fill='white' text-anchor='middle'%3EИФ%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a0b10'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='700' fill='white' text-anchor='middle'%3EКГ%3C/text%3E%3C/svg%3E">
 
 <!-- Structured data: Person -->
 <script type="application/ld+json">
@@ -39,12 +39,12 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Кирилл Грант",
-  "jobTitle": "Frontend-Backend-разработчик",
+  "jobTitle": "Front-Back-разработчик",
   "url": "https://webdotG.github.io/",
   "email": "mailto:webdotg.inbox@gmail.com",
   "sameAs": [
     "https://github.com/webdotG",
-    "https://t.me/username"
+    "https://t.me/KirillGrant"
   ]
 }
 </script>
@@ -54,15 +54,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="style_job.css">
+<link rel="stylesheet" href="lightbox.css">
 </head>
 
 <body>
-  <!-- shader background move the mouse · click for a puls) -->
+  <!-- shader background: move the mouse · click for a pulse -->
   <canvas id="bg" aria-hidden="true"></canvas>
   <div class="scrim" aria-hidden="true"></div>
 
   <!-- particles for commercial projects -->
   <canvas id="fx" aria-hidden="true"></canvas>
+
+  <!-- Lightbox для изображений -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Закрыть">✕</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="Увеличенное изображение">
+  </div>
 
   <div class="page">
 
@@ -82,7 +89,6 @@
       </div>
       <button class="bg-toggle no-ripple" data-bg-cycle type="button" aria-label="Сменить фон">
         <span data-bg-label>Фон 1</span>
-        <!-- <span class="swap" aria-hidden="true">⟳</span> -->
       </button>
     </nav>
 
@@ -90,18 +96,18 @@
     <header class="hero wrap" id="top" data-screen-label="Hero">
       <h1>Кирилл<br><span class="accent">Грант</span></h1>
       <div class="status"><span class="dot"></span>Открыт к предложениям</div>
-      <p class="role"><b>Frontend-Backend<br/></b> JS, TS, Node, Python, Docker, Nginx, Linux Server, <br/>
+      <p class="role"><b>Frontend-Backend, Algotrading<br/></b> JS, TS, Node, Python, Docker, Nginx, Linux Server, <br/>
       any frameworks and libraries</p>
       <p class="lede">
-        Свою первую HTML страницу сверстал и задизайнил в 2017 году<br/>
+        Свою первую HTML-страницу сверстал и задизайнил в 2017 году<br/>
       </p>
       <div class="cta">
-        <a class="btn btn-primary" href="#work">личные проекты</a>
-        <a class="btn btn-ghost" href="#contact">коммерческие проекты</a>
+        <a class="btn btn-primary" href="#work">Личные проекты</a>
+        <a class="btn btn-ghost" href="#contact">Коммерческие проекты</a>
       </div>
       <div class="socials">
         <a href="https://github.com/webdotG" target="_blank" rel="noopener">GitHub ↗</a>
-        <a href="https://t.me/username" target="_blank" rel="noopener">Telegram ↗</a>
+        <a href="https://t.me/KirillGrant" target="_blank" rel="noopener">Telegram ↗</a>
       </div>
       <div class="scroll-hint"><span class="line"></span>Ниже подробнее</div>
     </header>
@@ -110,36 +116,55 @@
     <!-- ===================== ABOUT ===================== -->
     <section class="section wrap" id="about" data-screen-label="О себе">
       <div class="section-head reveal">
-        <span class="eyebrow"> О себе</span>
+        <span class="eyebrow">О себе</span>
         <h2>Коротко обо мне</h2>
       </div>
       <div class="about-grid">
         <div class="card about-text reveal">
           <aside class="about-side">
-  
-          <div class="card facts reveal d2">
-             <div class="fact"><span class="k">Дата Рождения</span><span class="v">25.06.1989</span></div>
-            <div class="fact"><span class="k">Локация</span><span class="v">Санкт-Петербург, РФ</span></div>
-            <div class="fact"><span class="k">Формат</span><span class="v">Удалённо</span></div>
-            <div class="fact"><span class="k">Языки</span><span class="v">RU · EN</span></div>
-          </div>
-        </aside>
-          <p class="lead">Коммерчесский стаж 8 лет </p>
-          <p class="lead">
-            В последнее время увлечён алогритмической торговлей на Мос бирже и крипто площадках в автоматизации трейдинга и работе с биржевыми API.  
-            <br/>Пишу торговых ботов под Bybit, Финам, АЛОР, создаю сигнальные стратегии, провожу бэктесты и оптимизирую код под реальные условия.
-            <br/>Тестирую и интегрирую специализированные ИИ модели.
-          </p>
+            <div class="card facts reveal d2">
+              <div class="fact"><span class="k">Коммерческий стаж</span><span class="v">8 лет</span></div>
+              <div class="fact"><span class="k">Дата рождения</span><span class="v">25.06.1989</span></div>
+              <div class="fact"><span class="k">Локация</span><span class="v">Санкт-Петербург, РФ</span></div>
+              <div class="fact"><span class="k">Формат</span><span class="v">Удалённо</span></div>
+              <div class="fact"><span class="k">Языки</span><span class="v">RU · EN</span></div>
+            </div>
+          </aside>
+
           <p class="lead">
             Пишу на JS и Python
+            <br/>Настраиваю Nginx, Docker
+            <br/>Мониторю пакеты Wireshark
           </p>
           <p class="lead">
-            Веб на React Vite, JS class <br/>
-            Мобильные на React-Native, Kotlin
+            Понимаю, как устроены сети, передаются данные, работают протоколы
           </p>
           <p class="lead">
-            Telegram mini App / bot-shop<br/>
+            Настраивал оборудование MikroTik, мосты и ВПН
           </p>
+          <p class="lead">
+            Знаю про атаки на ОС, серверы, языки, веб и
+            <br/>умею защищаться от них
+          </p>
+          <p class="lead">
+            Рботаю с PostgreSQL бд, строю архитектуру и связываю таблицы
+          </p>
+          <p class="lead">
+            Понимаю принципы различных парадигм
+            <br/>«сам чаще придерживаюсь ООП-подхода»
+          </p>
+          <p class="lead">
+            Веб на React / Vite, JS Classes
+            <br/>Мобильные на React Native, Kotlin
+            <br/>Telegram mini App / bot-shop
+          </p>
+
+          <p class="lead">
+            В последнее время увлечён алгоритмической торговлей, её автоматизацией и работой с биржевыми API.
+            <br/>Пишу торговых ботов под Финам, АЛОР, Bybit, Interactive Brokers (IBKR), создаю сигнальные стратегии, провожу бэктесты и оптимизирую код под реальные условия.
+            <br/>Тестирую и интегрирую специализированные ИИ-модели.
+          </p>
+
           <div class="tags" aria-label="Навыки">
             <span class="tag">VLESS+WebSocket+TLS</span>
             <span class="tag">REST API</span>
@@ -152,13 +177,12 @@
             <span class="tag">HTML/CSS</span>
             <span class="tag">JS/TS</span>
             <span class="tag">React/Next.js/Vue</span>
-            <span class="tag">Mobx/Zustand</span>
-             <span class="tag">Git/GitLab</span>
-            <span class="tag"><a href="https://github.com/mehdihadeli/awesome-software-architecture">awesome-software-architecture</a></span>
-            <span class="tag"><a href="https://github.com/ryanmcdermott/clean-code-javascript">clean-code-javascript</a></span>
-            <span class="tag"><a href="https://feedback.refactoring.guru/communities/3/topics/946-idea-for-a-new-book-on-design-patterns">
-              Design Patterns II</a></span>
-              <span class="tag"><a href="https://github.com/rmanguinho/clean-ts-api">clean-ts-api</a></span>
+            <span class="tag">MobX/Zustand</span>
+            <span class="tag">Git/GitLab</span>
+            <span class="tag"><a href="https://github.com/mehdihadeli/awesome-software-architecture" target="_blank" rel="noopener">awesome-software-architecture</a></span>
+            <span class="tag"><a href="https://github.com/ryanmcdermott/clean-code-javascript" target="_blank" rel="noopener">clean-code-javascript</a></span>
+            <span class="tag"><a href="https://feedback.refactoring.guru/communities/3/topics/946-idea-for-a-new-book-on-design-patterns" target="_blank" rel="noopener">Design Patterns II</a></span>
+            <span class="tag"><a href="https://github.com/rmanguinho/clean-ts-api" target="_blank" rel="noopener">clean-ts-api</a></span>
             <span class="tag">WebGL / GLSL</span>
             <span class="tag">Анимация</span>
             <span class="tag">Доступность</span>
@@ -171,7 +195,7 @@
     <!-- ===================== EDUCATION ===================== -->
     <section class="section wrap" id="education" data-screen-label="Образование">
       <div class="section-head reveal">
-        <span class="eyebrow"> Образование</span>
+        <span class="eyebrow">Образование</span>
         <h2>Учёба и курсы</h2>
       </div>
       <div class="timeline">
@@ -180,79 +204,85 @@
           <div class="when"><span class="now">сейчас</span></div>
           <div>
             <h3>Самообразование</h3>
-              <a href="https://asozykin.ru/courses/networks_online">Andrey Sozykin</a>
-             <p>
-              Курс по компьютерным сетям, разработанный специально для программистов. <br/>
+
+            <a href="https://asozykin.ru/courses/networks_online" target="_blank" rel="noopener">Andrey Sozykin</a>
+            <p>
+              Курс по компьютерным сетям, разработанный специально для программистов.<br/>
               Используется нисходящий подход, начиная с протоколов прикладного уровня, таких как HTTP и DNS, для создания целостного понимания работы сетей.
-              </p>
-              <a href="https://www.youtube.com/@TimurShemsedinov">Timur Shemsedinov</a>
-              <p>
-                Лекции, курсы, тренинги по программированию на JavaScript, TypeScript и NodeJS — оптимизация, масштабирование асинхронное программирование, 
-              <br/>паттерны GRASP, SOLID, GoF patterns — архитектура приложений 
-              </p>
-              <a href="https://www.youtube.com/@AsForJS">As For JS</a>
-              <p>
-             JavaScript глазами спецификации
-              </p>
-              <a href="https://portswigger.net/web-security">PortSwigger Web Security Academy</a>
-              <p>
-              
- онлайн-центр обучения по безопасности веб-приложений от команды PortSwigger, с контентом от их исследователей и автора The Web Application Hacker's Handbook. 
-  <br/>Покрывает: SQL injection, XSS, CSRF, SSRF, аутентификацию, сессии, API, GraphQL, race conditions и т.д. 
-              </p>
-              <a href="https://github.com/robcarver17/pysystemtrade ">Rob Carver pysystemtrade</a>
-              <p>
-             Автор - бывший управляющий систематическим фондом, у него есть книга и блог Investment Idiocy с разбором систематического трейдинга и трендследования
-              </p>
-                <a href="https://habr.com/ru/articles/935196/"><h3>Роман@negrbluad</h3></a>
-              <p>
-             грамотный бэктест и анализ торговой стратегии: метрики, сигналы, сделки и выводы в алготрейдинге.
-              </p>
-              <a  href="https://github.com/wangzhe3224/awesome-systematic-trading">Awesome Systematic Trading</a>
-              <p>
-             список библиотек и ресурсов по систематическому трейдингу: крипта, акции, фьючерсы, опционы, CFD, FX и многое другое. 
-             <br/>Есть отдельно PyTrendFollow - systematic futures trading через трендследование, и hftbacktest для HFT на тиковых данных.
-              </p>
- 
+            </p>
+
+            <a href="https://www.youtube.com/@TimurShemsedinov" target="_blank" rel="noopener">Timur Shemsedinov</a>
+            <p>
+              Лекции, курсы, тренинги по программированию на JavaScript, TypeScript и Node.js — оптимизация, масштабирование, асинхронное программирование,
+              <br/>паттерны GRASP, SOLID, GoF patterns — архитектура приложений.
+            </p>
+
+            <a href="https://www.youtube.com/@AsForJS" target="_blank" rel="noopener">As For JS</a>
+            <p>
+              JavaScript глазами спецификации.
+            </p>
+
+            <a href="https://portswigger.net/web-security" target="_blank" rel="noopener">PortSwigger Web Security Academy</a>
+            <p>
+              Онлайн-центр обучения по безопасности веб-приложений от команды PortSwigger, с контентом от их исследователей и автора The Web Application Hacker's Handbook.
+              <br/>Покрывает: SQL injection, XSS, CSRF, SSRF, аутентификацию, сессии, API, GraphQL, race conditions и т. д.
+            </p>
+
+            <a href="https://github.com/robcarver17/pysystemtrade" target="_blank" rel="noopener">Rob Carver — pysystemtrade</a>
+            <p>
+              Автор — бывший управляющий систематическим фондом, у него есть книга и блог Investment Idiocy с разбором систематического трейдинга и трендследования.
+            </p>
+
+            <a href="https://github.com/wangzhe3224/awesome-systematic-trading" target="_blank" rel="noopener">Awesome Systematic Trading</a>
+            <p>
+              Список библиотек и ресурсов по систематическому трейдингу: крипта, акции, фьючерсы, опционы, CFD, FX и многое другое.
+              <br/>Есть отдельно PyTrendFollow — systematic futures trading через трендследование, и hftbacktest для HFT на тиковых данных.
+            </p>
+
           </div>
         </article>
-          <article class="card edu reveal">
+
+        <article class="card edu reveal">
           <div class="when">2023</div>
           <div>
-            <a href="https://htmlacademy.ru/intensive/nodejs">
-            <h3>"HTML Academy" <br/> Node.js. Профессиональная разработка REST API </h3>
+            <a href="https://htmlacademy.ru/intensive/nodejs" target="_blank" rel="noopener">
+              <h3>«HTML Academy» <br/> Node.js. Профессиональная разработка REST API</h3>
             </a>
           </div>
         </article>
+
         <article class="card edu reveal">
           <div class="when">2022</div>
           <div>
-            <a href="https://htmlacademy.ru/intensive/react">
-            <h3>"HTML Academy" <br/> React разработка сложных клиентских приложений </h3>
+            <a href="https://htmlacademy.ru/intensive/react" target="_blank" rel="noopener">
+              <h3>«HTML Academy» <br/> React. Разработка сложных клиентских приложений</h3>
             </a>
           </div>
         </article>
+
         <article class="card edu reveal">
           <div class="when">2021</div>
           <div>
-            <a href="https://htmlacademy.ru/intensive/ecmascript">
-            <h3>"HTML Academy" <br/> JavaScript. Архитектура клиентских приложений</h3>
+            <a href="https://htmlacademy.ru/intensive/ecmascript" target="_blank" rel="noopener">
+              <h3>«HTML Academy» <br/> JavaScript. Архитектура клиентских приложений</h3>
             </a>
           </div>
         </article>
+
         <article class="card edu reveal">
           <div class="when">2019</div>
           <div>
-            <a href="https://htmlacademy.ru/intensive/adaptive">
-            <h3>"HTML Academy" <br/> HTML и CSS. Адаптивная вёрстка и автоматизация</h3>
-              </a>
-             </div>
+            <a href="https://htmlacademy.ru/intensive/adaptive" target="_blank" rel="noopener">
+              <h3>«HTML Academy» <br/> HTML и CSS. Адаптивная вёрстка и автоматизация</h3>
+            </a>
+          </div>
         </article>
+
         <article class="card edu reveal">
           <div class="when">2018</div>
           <div>
-            <a href="https://htmlacademy.ru/intensive/htmlcss">
-            <h3>"HTML Academy" <br/> "HTML и CSS. Профессиональная вёрстка сайтов</h3>
+            <a href="https://htmlacademy.ru/intensive/htmlcss" target="_blank" rel="noopener">
+              <h3>«HTML Academy» <br/> HTML и CSS. Профессиональная вёрстка сайтов</h3>
             </a>
           </div>
         </article>
@@ -263,21 +293,48 @@
     <!-- ===================== CONTACT ===================== -->
     <section class="contact wrap" id="contact" data-screen-label="Резюме">
       <div class="section-head reveal">
-        <span class="eyebrow"> Коммерческие проекты</span>
+        <span class="eyebrow">Коммерческие проекты</span>
         <h2>Время и место работы</h2>
       </div>
 
       <!-- ====== ВСТАВКА ИЗ JOB.HTML ====== -->
       <div class="job-container">
-        <!-- X7Medical -->
+        <!-- АСНА -->
         <article class="job_job reveal">
           <div class="job-head_job">
-            <h2 class="company_job fx_job fx-fire_job" data-fx="fire">X7Medical</h2>
-            <span class="dur_job">Май 2023 — сейчас · 3 г 2 мес</span>
+            <h2 class="company_job fx_job fx-fire_job" data-fx="fire">АСНА</h2>
+            <span class="dur_job">Май 2023 — сейчас · 3 г 1 мес</span>
           </div>
-          <p class="role_job">Full-stack разработчик <span class="when_job">· JS, TS, Node.js, React, Next.js</span></p>
-
+          <p class="role_job">Full-stack</p>
           <div class="projects_job">
+            <div class="project_job">
+              <h3>Рефакторинг клиентской площадки<br/>Архитектурный переход на классовую модель</h3>
+              <span class="proj-when_job">Март 2025 — настоящее время</span>
+              <p class="label_job">Обязанности</p>
+              <ul class="duties_job">
+                <li>Переосмысление архитектуры: переход от Next.js App Router к предметно-ориентированным классам.</li>
+                <li>Создание Repository Service как единого источника данных с чёткими портами ввода/вывода.</li>
+                <li>Реализация паттерна Repository: абстракция над источниками данных (API, кэш, хранилище).</li>
+                <li>Уход от связанности с фреймворком: сервис не зависит от Next.js.</li>
+                <li>Чёткое разделение бизнес-логики и UI-слоя.</li>
+                <li>Внедрение принципов SOLID для повышения качества кода.</li>
+                <li>Покрытие критических модулей юнит-тестами (Jest) и интеграционными тестами.</li>
+                <li>Ведение Storybook для компонентов.</li>
+                <li>Инкрементальная миграция существующих компонентов на новый сервис.</li>
+              </ul>
+              <div class="stack_job">
+                <span class="tag_job">TS</span>
+                <span class="tag_job">React</span>
+                <span class="tag_job">Next.js</span>
+                <span class="tag_job">REST API</span>
+                <span class="tag_job">MobX</span>
+                <span class="tag_job">Jest</span>
+                <span class="tag_job">Storybook</span>
+                <span class="tag_job">SOLID</span>
+                <span class="tag_job">Repository Pattern</span>
+              </div>
+            </div>
+
             <div class="project_job">
               <h3>Система управления нагрузкой персонала и документооборотом</h3>
               <span class="proj-when_job">Сентябрь 2024 — настоящее время</span>
@@ -318,7 +375,7 @@
             <h2 class="company_job fx_job fx-water_job" data-fx="water">TradeMan</h2>
             <span class="dur_job">Май 2022 — Апрель 2023 · 1 год</span>
           </div>
-          <p class="role_job">Frontend разработчик <span class="when_job">· JS, TS, React</span></p>
+          <p class="role_job">Frontend</p>
 
           <div class="projects_job">
             <div class="project_job">
@@ -344,7 +401,7 @@
             <h2 class="company_job fx_job fx-ghost_job" data-fx="ghost">Digital Ferz</h2>
             <span class="dur_job">Август 2021 — Апрель 2022 · 9 мес</span>
           </div>
-          <p class="role_job">Frontend разработчик <span class="when_job">· JS</span></p>
+          <p class="role_job">Frontend</p>
 
           <div class="projects_job">
             <div class="project_job">
@@ -369,7 +426,7 @@
             <h2 class="company_job fx_job fx-wind_job" data-fx="wind">Up Work</h2>
             <span class="dur_job">Март 2019 — Июнь 2021 · 2 г 4 мес</span>
           </div>
-          <p class="role_job">Frontend разработчик</p>
+          <p class="role_job">Frontend</p>
 
           <div class="projects_job">
             <div class="project_job">
@@ -390,39 +447,36 @@
     <!-- ===================== PORTFOLIO ===================== -->
     <section class="section wrap" id="work" data-screen-label="Портфолио">
       <div class="section-head reveal">
-        <span class="eyebrow"> Портфолио</span>
+        <span class="eyebrow">Портфолио</span>
         <h2>Личные проекты</h2>
       </div>
       <div class="work-grid">
-        <a class="card project reveal" href="https://github.com/webdotG/trade_inn" target="_blank" rel="noopener">
-          <div class="thumb ph"><span>
-            <img src="./img/trading.png" width="420px" height="370px">
-          </span></div>
+
+        <!-- ====== ПРОЕКТ 1: Trade Inn ====== -->
+        <div class="card project reveal">
+          <div class="thumb" data-full="./img/trading.png">
+            <img src="./img/trading.png" alt="Trade Inn preview">
+          </div>
           <div class="body">
             <div class="top">
-              <h3>- Бэктестер <br/>- Торговый робот<br/>- GUI</h3>
-
-              <span class="num">01</span></div>
-            <p>Бэктестер прогоняет внутридневную стратегию по минутным котировкам одного
-                инструмента и считает результат. 
-                <br/>Поддерживаются два режима использования:
-
-                <br>- Одиночный тест - один набор параметров, полный набор метрик и анализ
-                  капитала.
-                <br/>- Оптимизация - перебор сетки параметров (диапазоны/перечисления) с
-                  параллельным расчётом, грубыми метриками и записью сводки в CSV.
+              <h3>— Бэктестер <br/>— Торговый робот<br/>— GUI</h3>
+              <span class="num">01</span>
+            </div>
+            <p>
+              Бэктестер прогоняет внутридневную стратегию по минутным котировкам одного инструмента и считает результат.
+              <br/>Поддерживаются два режима использования:
+              <br/>— Одиночный тест — один набор параметров, полный набор метрик и анализ капитала.
+              <br/>— Оптимизация — перебор сетки параметров (диапазоны/перечисления) с параллельным расчётом, грубыми метриками и записью сводки в CSV.
             </p>
-
-            <p>Торговый робот по АПИ создаёт ордера и входит в сделки. 
-
-                <br/>торгует фьючерсами по стратегиям найденным через тестер:
-
-                <br>Поддерживает работу с АПИ брокеров :
-                <br/>IBKR, ByBit, Финам, Алор
+            <p>
+              Торговый робот по API создаёт ордера и входит в сделки.
+              <br/>Торгует фьючерсами по стратегиям, найденным через тестер.
+              <br/>Поддерживает работу с API брокеров:
+              <br/>IBKR, Bybit, Финам, АЛОР.
             </p>
-            <p>GUI для удобства и визулизации. 
-
-                <br/>весь функционал бэктестера и торговли в одном приложении 
+            <p>
+              GUI для удобства и визуализации.
+              <br/>Весь функционал бэктестера и торговли в одном приложении.
             </p>
             <div class="meta">
               <span class="tag">Linux Server</span>
@@ -432,15 +486,24 @@
               <span class="tag">numpy</span>
               <span class="tag">matplotlib</span>
             </div>
+            <a href="https://github.com/webdotG/trade_inn" target="_blank" rel="noopener" class="project-link">
+              Посмотреть проект →
+            </a>
           </div>
-        </a>
-        <a class="card project reveal d1" href="https://github.com/webdotG/kharon-mess" target="_blank" rel="noopener">
-          <div class="thumb ph"><span>
-            <img src="./img/kharon_messeger.jpg" width="370px" height="720px">
-          </span></div>
+        </div>
+
+        <!-- ====== ПРОЕКТ 2: Kharon Messenger ====== -->
+        <div class="card project reveal d1">
+          <div class="thumb" data-full="./img/kharon_messeger.jpg">
+            <img src="./img/kharon_messeger.jpg" alt="Kharon Messenger preview">
+          </div>
           <div class="body">
-            <div class="top"><h3>Kharon Messenger</h3><span class="num">02</span></div>
-            <p>Минималистичный зашифрованный мессенджер для небольших команд.
+            <div class="top">
+              <h3>Kharon Messenger</h3>
+              <span class="num">02</span>
+            </div>
+            <p>
+              Минималистичный зашифрованный мессенджер для небольших команд.
               <br/>Сообщения живут 2 минуты, потом исчезают навсегда.
               <br/>Никаких аккаунтов, телефонных номеров, истории переписки и чужих серверов.
             </p>
@@ -450,22 +513,26 @@
               <span class="tag">Kotlin</span>
               <span class="tag">Android Studio</span>
             </div>
+            <a href="https://github.com/webdotG/kharon-mess" target="_blank" rel="noopener" class="project-link">
+              Посмотреть проект →
+            </a>
           </div>
-        </a>
+        </div>
 
       </div>
     </section>
 
-      <footer class="footer">
-        <span>© <span id="year"></span> Кирилл Грант</span>
-        <span>Сделано на HTML · CSS · WebGL</span>
-      </footer>
+    <footer class="footer">
+      <span>© <span id="year"></span> Кирилл Грант</span>
+      <span>Сделано на HTML · CSS · WebGL</span>
+    </footer>
   </div>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script src="shaders.js"></script>
   <script src="app.js"></script>
   <script src="script_job.js"></script>
+  <script src="lightbox.js"></script>
   <script>
     // year
     document.getElementById('year').textContent = new Date().getFullYear();

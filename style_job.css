@@ -82,14 +82,15 @@ body{
   font-family:var(--mono);
   font-size:12.5px;
   letter-spacing:.04em;
-  color:var(--muted);
+  color:var(--ink);
   white-space:nowrap;
   padding-top:.4em;
 }
 .role_job{
-  margin:14px 0 0;
+  /* margin:14px 0 0; */
   color:var(--ink-2);
   font-size:16px;
+  text-align: right;
 }
 .role_job .when_job{color:var(--muted);}
 
@@ -101,6 +102,7 @@ body{
   display:flex;
   flex-direction:column;
   gap:34px;
+  color: var(--ink-2);
 }
 .project_job{position:relative;}
 .project_job::before{
