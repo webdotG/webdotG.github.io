@@ -513,32 +513,87 @@
           </div>
         </div>
 
-        <!-- ====== ПРОЕКТ 2: Kharon Messenger ====== -->
-        <div class="card project reveal d1">
-          <div class="thumb" data-full="./img/kharon_messeger.jpg">
-            <img src="./img/kharon_messeger.jpg" alt="Kharon Messenger preview">
-          </div>
-          <div class="body">
-            <div class="top">
-              <h3>Kharon Messenger</h3>
-              <span class="num">02</span>
-            </div>
-            <p>
-              Минималистичный зашифрованный мессенджер для небольших команд.
-              <br/>Сообщения живут 2 минуты, потом исчезают навсегда.
-              <br/>Никаких аккаунтов, телефонных номеров, истории переписки и чужих серверов.
-            </p>
-            <div class="meta">
-              <span class="tag">Linux Server</span>
-              <span class="tag">Node</span>
-              <span class="tag">Kotlin</span>
-              <span class="tag">Android Studio</span>
-            </div>
-            <a href="https://github.com/webdotG/kharon-mess" target="_blank" rel="noopener" class="project-link">
-              Посмотреть проект →
-            </a>
-          </div>
-        </div>
+        <!-- ====== ПРОЕКТ 4: Kronos Lab ====== -->
+<div class="card project reveal d3">
+  <div class="thumb" data-full="https://raw.githubusercontent.com/webdotG/kronos_lab/main/docs/preview.png">
+    <img src="./img/kronos-lab.png" alt="Kronos Lab preview" loading="lazy">
+  </div>
+  <div class="body">
+    <div class="top">
+      <h3>Kronos-Lab</h3>
+      <span class="num">04</span>
+    </div>
+    <p>
+      Исследовательский стенд для систематической торговли. Генеративная модель строит ансамбли из 500+ вероятных 24-часовых траекторий на основе рыночного контекста.
+      <br/><br/>
+      Бэктестер с резюмированием, авто-адаптацией под GPU и разделением генерации/анализа: ансамбли считаются один раз на GPU, стратегии перебираются на CPU бесплатно.
+      <br/><br/>
+      Сохраняет полный контракт данных: траектории, контекстные фичи (волатильность, тренд, z-score), реальный исход. Оценка сигналов по независимому суточному срезу — без перекрытия сделок.
+      <br/><br/>
+      Использует нейросеть <a href="https://huggingface.co/NeoQuasar/Kronos-Tokenizer-base" target="_blank" rel="noopener">Kronos-Tokenizer-base</a> для генерации ансамблей.
+    </p>
+    <div class="meta">
+      <span class="tag">Python</span>
+      <span class="tag">PyTorch</span>
+      <span class="tag">CUDA</span>
+      <span class="tag">Machine Learning</span>
+      <span class="tag">Time Series</span>
+      <span class="tag">Systematic Trading</span>
+      <span class="tag">Backtesting</span>
+      <span class="tag">Generative Models</span>
+      <span class="tag">HuggingFace</span>
+      <span class="tag">Docker</span>
+      <span class="tag">Quantitative Finance</span>
+    </div>
+    <a href="https://github.com/webdotG/kronos_lab" target="_blank" rel="noopener" class="project-link">
+      Посмотреть проект →
+    </a>
+  </div>
+</div>
+
+<!-- ====== ПРОЕКТ 2: Kharon Messenger ====== -->
+<div class="card project reveal d1">
+  <div class="thumb" data-full="./img/kharon_messeger.jpg">
+    <img src="./img/kharon_messeger.jpg" alt="Kharon Messenger preview">
+  </div>
+  <div class="body">
+    <div class="top">
+      <h3>Kharon Messenger</h3>
+      <span class="num">02</span>
+    </div>
+    <p>
+      Минималистичный зашифрованный мессенджер для небольших команд.
+      <br/><br/>
+      <strong>v2.0.0 — Reception Hours Edition</strong><br/>
+      Клиент больше не обязан висеть в сети 24/7. Зашёл → Забрал → Ушёл. Следов нет.
+      <br/><br/>
+      <strong>Reception Mode:</strong> LIVE, PULSE_5/15/30/60/240/360/720/1440 (окно связи раз в N минут), SILENT. Режим собеседника виден в чате.
+      <br/><br/>
+      <strong>Динамический TTL</strong> на сервере: сообщение живёт 2 минуты + интервал PULSE получателя. PULSE_1440 → TTL 26 часов.
+      <br/><br/>
+      <strong>Счётчик непрочитанных</strong> в списке контактов, сбрасывается при открытии чата. PULSE-уведомления с вибрацией, автозапуск после перезагрузки.
+      <br/><br/>
+      <strong>4 темы оформления:</strong> Princess ♡ (дефолтная), Terminal Dark >_!, Terminal Light о_0, Shadow ☠.
+      <br/><br/>
+      <strong>Шифрование:</strong> E2E X25519 + XSalsa20-Poly1305, WebSocket с certificate pinning, Android Keystore, Room + SQLCipher, FLAG_SECURE.
+    </p>
+    <div class="meta">
+      <span class="tag">Linux Server</span>
+      <span class="tag">Node.js</span>
+      <span class="tag">WebSocket</span>
+      <span class="tag">Kotlin</span>
+      <span class="tag">Android</span>
+      <span class="tag">E2E Encryption</span>
+      <span class="tag">X25519</span>
+      <span class="tag">Room SQLCipher</span>
+      <span class="tag">AlarmManager</span>
+      <span class="tag">ForegroundService</span>
+    </div>
+    <a href="https://github.com/webdotG/kharon-mess" target="_blank" rel="noopener" class="project-link">
+      Посмотреть проект →
+    </a>
+  </div>
+</div>
 
         <!-- ====== ПРОЕКТ 3: AIM (All In Me) ====== -->
         <div class="card project reveal d2">
