@@ -98,7 +98,7 @@
 /* ---- Адаптив ---- */
 @media (max-width: 660px) {
   .timer-container {
-    font-size: 7px;
+    font-size: 14px;
     padding: 3px 8px 3px 6px;
     flex-wrap: wrap;
   }
@@ -107,9 +107,9 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(2, 0.5fr);
-    gap: 8px;
+    gap: 6px;
   }
   .timer-unit {
-    font-size: 2px;
+    font-size: 7px;
   }
 }
