@@ -55,6 +55,7 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="style_job.css">
 <link rel="stylesheet" href="lightbox.css">
+<link rel="stylesheet" href="timer.css">
 </head>
 
 <body>
@@ -297,13 +298,20 @@
         <h2>Время и место работы</h2>
       </div>
 
-      <!-- ====== ВСТАВКА ИЗ JOB.HTML ====== -->
       <div class="job-container">
         <!-- АСНА -->
         <article class="job_job reveal">
           <div class="job-head_job">
             <h2 class="company_job fx_job fx-fire_job" data-fx="fire">АСНА</h2>
-            <span class="dur_job">Май 2023 — сейчас · 3 г 1 мес</span>
+            <!-- <span class="dur_job">Май 2023 — сейчас · 3 г 1 мес</span> -->
+             <span class="dur_job">
+              <span class="timer-container">
+                <span class="dur_job">с Мая 2023 - </span>
+                <!-- <span class="timer-icon">⏱</span> -->
+                <span class="timer-digits"></span>
+                
+              </span>
+            </span>
           </div>
           <p class="role_job">Full-stack</p>
           <div class="projects_job">
@@ -533,6 +541,7 @@
   <script src="app.js"></script>
   <script src="script_job.js"></script>
   <script src="lightbox.js"></script>
+  <script src="timer.js"></script> 
   <script>
     // year
     document.getElementById('year').textContent = new Date().getFullYear();

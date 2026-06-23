@@ -1,0 +1,109 @@
+/* ---- Timer (бомба-таймер) ---- */
+.timer-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono, "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace);
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  color: #7d756a;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(236, 231, 223, 0.08);
+  border-radius: 8px;
+  padding: 4px 12px 4px 10px;
+  backdrop-filter: blur(4px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.timer-container:hover {
+  border-color: rgba(236, 231, 223, 0.2);
+  box-shadow: 0 0 20px rgba(255, 138, 30, 0.08);
+}
+
+.timer-icon {
+  font-size: 14px;
+  opacity: 0.5;
+  margin-right: 2px;
+}
+
+.timer-digits {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.timer-unit {
+  color: #7d756a;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  margin-left: 1px;
+}
+.timer-unit:not(:last-child)::after {
+  content: "·";
+  margin-left: 4px;
+  color: rgba(236, 231, 223, 0.15);
+}
+
+.timer-sep {
+  color: rgba(236, 231, 223, 0.15);
+  margin: 0 1px;
+}
+
+/* ---- Цвета для разных "настроений" ---- */
+.timer-years {
+  color:  #7bed9f;
+  text-shadow: 0 0 8px rgba(255, 138, 30, 0.2);
+}
+.timer-months {
+  color: #7bed9f;
+  text-shadow: 0 0 6px rgba(255, 179, 71, 0.15);
+}
+.timer-days {
+  color:  #7bed9f;
+  text-shadow: 0 0 6px rgba(240, 230, 140, 0.1);
+}
+.timer-hours {
+  color: #7bed9f;
+  text-shadow: 0 0 6px rgba(123, 237, 159, 0.1);
+}
+.timer-minutes {
+  color: #7bed9f;
+  text-shadow: 0 0 6px rgba(112, 161, 255, 0.1);
+}
+.timer-seconds {
+  color: #7bed9f;
+  text-shadow: 0 0 10px rgba(255, 107, 129, 0.2);
+}
+
+/* ---- Мерцание для секунд (как у бомбы) ---- */
+.timer-seconds.blink {
+  animation: timerBlink 1s steps(1) infinite;
+}
+@keyframes timerBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ---- Подпись под таймером ---- */
+.timer-sub {
+  display: block;
+  font-family: var(--mono, monospace);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5a5248;
+  margin-top: 2px;
+  opacity: 0.6;
+}
+
+/* ---- Адаптив ---- */
+@media (max-width: 560px) {
+  .timer-container {
+    font-size: 12px;
+    padding: 3px 8px 3px 6px;
+    flex-wrap: wrap;
+  }
+  .timer-unit {
+    font-size: 9px;
+  }
+}
